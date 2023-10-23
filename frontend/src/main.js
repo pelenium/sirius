@@ -1,29 +1,34 @@
 import './style.css';
-import './app.css';
 
 import logo from './assets/images/logo-universal.png';
-import {Greet} from '../wailsjs/go/main/App';
 
 document.getElementById('logo').src = logo;
 
-let nameElement = document.getElementById("name");
-nameElement.focus();
-let resultElement = document.getElementById("result");
+let title = document.getElementById("name");
+title.focus();
+let name = document.getElementById("link");
+name.focus();
+let icon = document.getElementById("icon-path");
+icon.focus();
 
-window.greet = function () {
-    let name = nameElement.value;
+window.openForm = function () {
+    document.getElementById("myForm").style.display = "block";
+    document.getElementById("open-button").style.display = "none";
+};
 
-    if (name === "") return;
+window.saveData = function () {
+    console.log(title.value);
+    console.log(name.value);
+    console.log(icon.value);
 
-    try {
-        Greet(name)
-            .then((result) => {
-                resultElement.innerText = result;
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    } catch (err) {
-        console.error(err);
-    }
+    closeForm();
+};
+
+window.closeForm = function () {
+    title.value = "";
+    name.value = "";
+    icon.value = "";
+
+    document.getElementById("myForm").style.display = "none";
+    document.getElementById("open-button").style.display = "block";
 };

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>sirius</title>
+    <title>Sirius</title>
 </head>
 
 <body>
@@ -12,13 +12,25 @@
         <div id="header">
             <img id="logo" class="logo">
         </div>
-        
-        <div id="body">
-            <div class="result" id="result">Hello</div>
-            <div class="input-box" id="input">
-                <input class="input" id="name" type="text" autocomplete="off" />
-                <button class="btn" onclick="greet()">Greet</button>
-            </div>
+
+        <div id="btn">
+            <button class="open-button" id="open-button" onclick="openForm()">Add</button>
+        </div>
+
+        <div class="form-popup" id="myForm">
+            <form action="#" class="form-container">
+                <h1>Add a bookmark</h1>
+                <label for="name">Name</label>
+                <input type="text" placeholder="Bookmark name" id="name" required>
+
+                <label for="email">Link</label>
+                <input type="text" placeholder="Bookmark link" id="link" required>
+                <label for="email">Path to icon</label>
+                <input type="text" placeholder="Path to bookmark icon" id="icon-path" required>
+
+                <button type="button" class="btn" onclick="saveData()">Save</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+            </form>
         </div>
     </div>
     <script src="./src/main.js" type="module"></script>

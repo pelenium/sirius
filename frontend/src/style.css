@@ -1,12 +1,12 @@
 html {
     background-color: #090c0e;
     text-align: center;
-    color: white;
+    color: #f1f1f1;
 }
 
 body {
     margin: 0;
-    color: white;
+    color: #f1f1f1;
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
         "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
         sans-serif;
@@ -23,4 +23,115 @@ body {
 #app {
     height: 100vh;
     text-align: center;
+}
+
+#logo {
+    display: block;
+    width: 15%;
+    padding: 2.5% 2.5% 2.5%;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-origin: content-box;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.open-button {
+    background-color: #333333;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    opacity: 0.8;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9;
+}
+
+.form-container {
+    border: 3px solid #bababa;
+    border-radius: 20px;
+    max-width: 300px;
+    padding: 10px;
+    background-color: #090c0e;
+}
+
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    height: 20px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+    background-color: #f1f1f1;
+    outline: none;
+}
+
+.form-container .btn,
+.cancel {
+    background-color: #3f3f3f;
+    color: #f1f1f1;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.8;
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.cancel {
+    margin-bottom: 0px;
+}
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+label,
+h1 {
+    color: #f1f1f1;
+    margin-top: 2px;
+}
+
+input,
+button {
+    border-radius: 20px;
 }
