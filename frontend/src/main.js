@@ -49,8 +49,7 @@ function updateBookmarksView() {
                 card.className = 'card';
 
                 card.innerHTML = `
-                    <h2>${result[i].name}</h2>
-                    <a>${result[i].link}</a>
+                    <a href="${result[i].link}"><h2>${result[i].name}</h2></a>
                     <h3>${result[i].icon}</h3>
                 `;
                 li.appendChild(card)
