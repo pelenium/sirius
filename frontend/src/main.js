@@ -5,14 +5,7 @@ import { SaveToJSON, LoadBookmarks } from "../wailsjs/go/main/App";
 
 document.getElementById('logo').src = logo;
 
-let bookmarks = LoadBookmarks().then(
-    (result) => {
-        for (let i = 0; i < result.length; i++) {
-            console.log(result[i]);
-        }        
-    }
-);
-
+updateBookmarksView();
 
 let name = document.getElementById("name");
 let link = document.getElementById("link");
@@ -41,4 +34,28 @@ window.closeForm = function () {
 
     document.getElementById("myForm").style.display = "none";
     document.getElementById("open-button").style.display = "block";
+
+    updateBookmarksView();
 };
+
+function updateBookmarksView() {
+    document.getElementById("list").innerHTML = "";
+
+    let bookmarks = LoadBookmarks().then(
+        (result) => {
+            for (let i = 0; i < result.length; i++) {
+                const li = document.createElement('li');
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                card.innerHTML = `
+                    <h2>${result[i].name}</h2>
+                    <a>${result[i].link}</a>
+                    <h3>${result[i].icon}</h3>
+                `;
+                li.appendChild(card)
+                list.appendChild(li);
+            }
+        }
+    );
+}

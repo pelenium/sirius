@@ -38,14 +38,14 @@ func (a *App) LoadBookmarks() interface{} {
 		fmt.Println(err)
 	}
 
-	jsn := map[string]interface{}{}
+	jsn := []map[string]interface{}{}
 
 	json.Unmarshal(data, &jsn)
 	
 	var result []interface{}
 
-	for k, v := range jsn {
-		result = append(result, map[string]interface{}{k: v})
+	for _, i := range jsn {
+		result = append(result, i)
 	}
 
 	return result
@@ -68,14 +68,15 @@ func (a *App) SaveToJSON(name, link, icon string) {
 		fmt.Println(err)
 	}
 
-	jsn := map[string]interface{}{}
+	jsn := []map[string]interface{}{}
 
 	json.Unmarshal(data, &jsn)
 
-	jsn[link] = map[string]interface{}{
+	jsn = append(jsn, map[string]interface{}{
+		"name": name,
 		"link": link,
 		"icon": icon,
-	}
+	})
 
 	res, err := json.Marshal(jsn)
 	if err != nil {

@@ -131,6 +131,16 @@ h1 {
     margin-top: 2px;
 }
 
+.list {
+    display: inline-block;
+}
+
+.card {
+    width: 10%;
+    border: 3px solid #bababa;
+    border-radius: 20px;
+}
+
 input,
 button {
     border-radius: 20px;
