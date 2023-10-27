@@ -20,11 +20,19 @@ window.openForm = function () {
 };
 
 window.saveData = function () {
-    SaveToJSON(name.value, link.value, icon.value);
+    let bookmarks = SaveToJSON(name.value, link.value, icon.value).then(
+        (result) => {
+            if (result === true) {
+                closeForm();
 
-    closeForm();
-
-    bookmarks = LoadBookmarks();
+                bookmarks = LoadBookmarks();
+                link.style.background = 'white';
+                icon.style.background = 'white';
+            } else {
+                document.getElementById("link").style.background = '#FA8072';
+                document.getElementById("icon-path").style.background = '#FA8072';
+            }
+        });
 };
 
 window.closeForm = function () {
@@ -49,8 +57,7 @@ function updateBookmarksView() {
                 card.className = 'card';
 
                 card.innerHTML = `
-                    <a href="${result[i].link}"><h2>${result[i].name}</h2></a>
-                    <h3>${result[i].icon}</h3>
+                    <a href="${result[i].link}"><img src="${result[i].icon}"/><h2>${result[i].name}</h2></a>
                 `;
                 li.appendChild(card)
                 list.appendChild(li);

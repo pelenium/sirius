@@ -15,9 +15,11 @@ func main() {
 	app := NewApp()
 
 	err := wails.Run(&options.App{
-		Title:  "Sirius",
-		Width:  800,
-		Height: 600,
+		Title:     "Sirius",
+		Width:     800,
+		Height:    600,
+		MinWidth:  500,
+		MinHeight: 400,
 		AssetServer: &assetserver.Options{
 			Assets: assets,
 		},

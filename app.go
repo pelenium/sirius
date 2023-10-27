@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"net/url"
 	"os"
 )
 
@@ -32,6 +33,7 @@ func (a *App) LoadBookmarks() interface{} {
 		}
 		file.WriteAt([]byte("{}"), 0)
 	}
+	defer file.Close()
 
 	data, err := io.ReadAll(file)
 	if err != nil {
@@ -41,7 +43,7 @@ func (a *App) LoadBookmarks() interface{} {
 	jsn := []map[string]interface{}{}
 
 	json.Unmarshal(data, &jsn)
-	
+
 	var result []interface{}
 
 	for _, i := range jsn {
@@ -51,7 +53,16 @@ func (a *App) LoadBookmarks() interface{} {
 	return result
 }
 
-func (a *App) SaveToJSON(name, link, icon string) {
+func (a *App) SaveToJSON(name, link, icon string) bool {
+	isCorrect := checkForCorrectLink(link)
+	if !isCorrect {
+		return false
+	}
+	isCorrect = checkForCorrectLink(icon)
+	if !isCorrect {
+		return false
+	}
+
 	var file *os.File
 
 	file, err := os.OpenFile("./bookmarks.json", os.O_RDWR, 0644)
@@ -62,6 +73,7 @@ func (a *App) SaveToJSON(name, link, icon string) {
 		}
 		file.WriteAt([]byte("{}"), 0)
 	}
+	defer file.Close()
 
 	data, err := io.ReadAll(file)
 	if err != nil {
@@ -90,5 +102,10 @@ func (a *App) SaveToJSON(name, link, icon string) {
 
 	file.WriteAt([]byte(res), 0)
 
-	file.Close()
+	return true
+}
+
+func checkForCorrectLink(link string) bool {
+	_, err := url.ParseRequestURI(link)
+	return err == nil
 }

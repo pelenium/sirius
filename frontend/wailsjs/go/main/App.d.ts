@@ -3,4 +3,4 @@
 
 export function LoadBookmarks():Promise<any>;
 
-export function SaveToJSON(arg1:string,arg2:string,arg3:string):Promise<void>;
+export function SaveToJSON(arg1:string,arg2:string,arg3:string):Promise<boolean>;
