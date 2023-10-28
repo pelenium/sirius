@@ -131,15 +131,20 @@ h1 {
     margin-top: 2px;
 }
 
-ul {
-    display: inline-block;
-    list-style-type: none;
+#list {    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .card {
+    min-width: 75px;
     width: 250px;
     border: 3px solid #bababa;
     border-radius: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 .card img {

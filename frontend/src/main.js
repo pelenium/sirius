@@ -52,15 +52,13 @@ function updateBookmarksView() {
     let bookmarks = LoadBookmarks().then(
         (result) => {
             for (let i = 0; i < result.length; i++) {
-                const li = document.createElement('li');
                 const card = document.createElement('div');
                 card.className = 'card';
 
                 card.innerHTML = `
                     <a href="${result[i].link}"><img src="${result[i].icon}"/><h2>${result[i].name}</h2></a>
                 `;
-                li.appendChild(card)
-                list.appendChild(li);
+                list.appendChild(card);
             }
         }
     );
