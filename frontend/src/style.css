@@ -29,7 +29,7 @@ body {
 }
 
 .btn {
-    display: flex;
+    display: flex;  
     align-items: center;
     vertical-align: middle;
 }
@@ -126,7 +126,7 @@ body {
 
 label,
 h1 {
-    color: #fff;
+    color: black;
     margin-top: 2px;
 }
 

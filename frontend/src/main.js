@@ -20,17 +20,18 @@ window.openForm = function () {
 };
 
 window.saveData = function () {
-    SaveToJSON(name.value, link.value, icon.value).then(
+    let bookmarks = SaveToJSON(name.value, link.value, icon.value).then(
         (result) => {
             if (result === true) {
                 closeForm();
+
+                bookmarks = LoadBookmarks();
                 link.style.background = 'white';
                 icon.style.background = 'white';
             } else {
                 document.getElementById("link").style.background = '#FA8072';
                 document.getElementById("icon-path").style.background = '#FA8072';
             }
-            updateBookmarksView(); // Обновляем список закладок
         });
 };
 
@@ -47,20 +48,20 @@ window.closeForm = function () {
 
 function updateBookmarksView() {
     const list = document.getElementById("list");
-    // Очистим список закладок перед добавлением новых элементов
     list.innerHTML = "";
-    
+
     LoadBookmarks().then((result) => {
         for (let i = 0; i < result.length; i++) {
             const bookmark = result[i];
             const button = document.createElement('button');
             button.className = 'card';
-            button.innerHTML = `<img src="${bookmark.icon}"/><h2>${bookmark.name}</h2>`;
 
-            // Добавляем обработчик нажатия для кнопки
+            button.innerHTML = `
+                <img src="${bookmark.icon}"/>
+                <h2>${bookmark.name}</h2>
+            `;
+
             button.addEventListener("click", function () {
-                // Здесь можно добавить логику обработки нажатия на закладку
-                // Например, перейти по ссылке bookmark.link
                 window.open(bookmark.link, '_blank');
             });
 
