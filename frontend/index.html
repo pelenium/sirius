@@ -6,17 +6,19 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <title>Sirius</title>
+    <title>SIRIUS</title>
 </head>
 
 <body>
+
     <div id="app">
         <div id="header">
             <img id="logo" class="logo">
+            <h1 style="color: black;">Hello there!</h1>
         </div>
 
         <div id="btn">
-            <button class="open-button" id="open-button" onclick="openForm()">Add</button>
+            <button class="open-button" id="open-button" onclick="openForm()">+</button>
         </div>
 
         <div id="list">
@@ -25,21 +27,26 @@
 
         <div class="form-popup" id="myForm">
             <form action="#" class="form-container">
-                <h1>Add a bookmark</h1>
-                <label for="name">Name</label>
-                <input type="text" placeholder="Bookmark name" id="name" required>
+                <h1 style="color: black;">Add a bookmark</h1>
+                <label style="color: black;" for="name">Name</label>
+                <input type="text" id="name" required>
 
-                <label for="email">Link</label>
-                <input type="text" placeholder="Bookmark link" id="link" required>
-                <label for="email">Path to icon</label>
-                <input type="text" placeholder="Path to bookmark icon" id="icon-path" required>
+                <label style="color: black;" for="email">Link</label>
+                <input type="text" id="link" required>
+                <label style="color: black;" for="email">Path to icon</label>
+                <input type="text" id="icon-path" required>
 
                 <button type="button" class="btn" onclick="saveData()">Save</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
             </form>
         </div>
     </div>
+</body>
+
     <script src="./src/main.js" type="module"></script>
+    <script src="./src/main.js" type="module"></script>
+</body>
+<script src="./src/main.js" type="module"></script>
 </body>
 
 </html>
