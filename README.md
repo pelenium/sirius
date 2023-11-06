@@ -2,7 +2,7 @@
 
 Sirius is an open source analog for Firework
 
-![example](https://i.postimg.cc/rmxVv581/video.gif)
+[![06-11-2023-154053.gif](https://i.postimg.cc/fySpd7Pj/06-11-2023-154053.gif)](https://postimg.cc/Mfx92Bqv)
 
 ## How to use it
 
